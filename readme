@@ -1,0 +1,29 @@
+rastogi@MacBook Fri Nov 23 2018 17:12:24
+$ ./loop.mk
+clang -O0 loop.c -o loop.o0
+clang -O1 loop.c -o loop.o1
+clang -O2 loop.c -o loop.o2
+clang -O3 loop.c -o loop.o3
+clang -Ofast loop.c -o loop.ofast
+go build loop.go
+time ./loop.o0
+4999999950000000
+        0.29 real         0.29 user         0.00 sys
+time ./loop.o1
+4999999950000000
+        0.00 real         0.00 user         0.00 sys
+time ./loop.o2
+4999999950000000
+        0.00 real         0.00 user         0.00 sys
+time ./loop.o3
+4999999950000000
+        0.00 real         0.00 user         0.00 sys
+time ./loop.ofast
+4999999950000000
+        0.00 real         0.00 user         0.00 sys
+time ./loop
+4999999950000000
+        0.04 real         0.04 user         0.00 sys
+time python loop.py
+49999995000000
+        1.63 real         1.61 user         0.01 sys
